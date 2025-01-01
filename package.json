@@ -1,0 +1,20 @@
+{
+  "name": "my-docker-app",
+  "version": "1.0.0",
+  "description": "A Dockerized application with separate environments for development and production.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "NODE_ENV=development node src/app.js",
+    "prod": "NODE_ENV=production node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
