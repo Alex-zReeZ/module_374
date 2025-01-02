@@ -1,11 +1,12 @@
-# My Docker App
+# Our Docker App
 
 ## Features
-- A simple web application demonstrating the use of Docker for deployment.
-- Supports both development and production environments with different configurations.
-- Modular architecture with separate files for routes, controllers, and models.
+- N/A
 
-## Installation
+## Running the Application
+Ensure that Docker CLI and Git CLI are installed before proceeding.
+
+### Downloading the Application
 1. Clone the repository:
    ```
    git clone https://github.com/yourusername/my-docker-app.git
@@ -14,39 +15,38 @@
    ```
    cd my-docker-app
    ```
-3. Install dependencies:
-   ```
-   npm install
-   ```
-
-## Running the Application
 ### Development Environment
 To run the application in the development environment, use Docker Compose:
 ```
 docker-compose -f docker/docker-compose.yml up
 ```
+Or, use the regular Dockerfile:
+```
+docker build --target dev -t my_app:dev .
+```
 This will start the application with the development configuration.
 
 ### Production Environment
-To run the application in the production environment, use:
+To run the application in the production environment, use Docker Compose:
 ```
 docker-compose -f docker/docker-compose.yml -e production up
+```
+Or, use the regular Dockerfile:
+```
+docker build --target prod -t my_app:prod .
 ```
 This will start the application with the production configuration.
 
 ## Architecture Overview
-- **Frontend**: Not applicable (this is a backend application).
-- **Backend**: Node.js application running on Express.
-- **Database**: Configurable via environment variables in `config/development.env` and `config/production.env`.
-- **Docker**: The application is containerized using Docker, with a `Dockerfile` and `docker-compose.yml` for easy deployment.
+- **Frontend**: N/A
+- **Backend**: N/A
+- **Database**: N/A
+- **Docker**: N/A
 
 ## Environment Variables
 - Development: Configured in `config/development.env`
 - Production: Configured in `config/production.env`
 
 ## How to Verify Environment Differences
-- **Development**: Check for verbose logging and modifiable code.
-- **Production**: Ensure logging is turned off and the code is fixed.
-
-## License
-This project is licensed under the MIT License.
+- **Development**: N/A
+- **Production**: N/A
