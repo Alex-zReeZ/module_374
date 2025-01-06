@@ -45,9 +45,14 @@ docker build --target prod -t projet_docker_prod:v1 . && docker run -P -d --name
 ```
 This will start the application with the production configuration.
 
-## How to Verify Environment Differences
-- **Development**: 
-  - Code can be modified and checked live, so you can modify the code faster
-- **Production**:
-  - The app is completly usable for the user, with no error blocking him 
-   
+
+
+Voici deux différences principales entre les environnements de développement et de production :
+
+### 1. **Flexibilité vs. Stabilité**  
+   - **Développement :** Vous pouvez tester et modifier le code en temps réel. Les erreurs ou bugs ne sont pas critiques, car l'objectif est de construire et de valider les fonctionnalités.  
+   - **Production :** L'application doit être stable et entièrement fonctionnelle pour les utilisateurs finaux. Aucune erreur ne doit bloquer l'expérience utilisateur.  
+
+### 2. **Performances et Debugging**  
+   - **Développement :** Les outils de debugging sont activés (comme les logs détaillés ou les modes de débogage). L'accent est mis sur la facilité de suivi et de résolution des problèmes.  
+   - **Production :** Les performances sont optimisées (minification des fichiers, désactivation des outils de debugging, gestion de la charge). L'objectif est d'offrir une expérience rapide et fluide.  
