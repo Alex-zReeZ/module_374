@@ -1,36 +1,44 @@
-const mysql = require('mysql2/promise');
+const fs = require('fs');
+const path = require('path');
 
-const dbConfig = {
-    host: 'db',
-    user: 'root',
-    password: 'example',
-    database: 'todo_db'
-};
+const dbPath = path.join(__dirname, 'todos.json');
 
-async function getTodos() {
-    const connection = await mysql.createConnection(dbConfig);
-    const [rows] = await connection.execute('SELECT * FROM todos');
-    await connection.end();
-    return rows;
+function readDB() {
+    if (!fs.existsSync(dbPath)) {
+        fs.writeFileSync(dbPath, JSON.stringify([]));
+    }
+    return JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 }
 
-async function addTodo(text, completed) {
-    const connection = await mysql.createConnection(dbConfig);
-    const [result] = await connection.execute('INSERT INTO todos (text, completed) VALUES (?, ?)', [text, completed]);
-    await connection.end();
-    return { id: result.insertId, text, completed };
+function writeDB(data) {
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+}
+
+async function getTodos() {
+    return readDB();
+}
+
+async function addTodo(text, completed = false) {
+    const todos = readDB();
+    const newTodo = { id: Date.now().toString(), text, completed };
+    todos.push(newTodo);
+    writeDB(todos);
+    return newTodo;
 }
 
 async function updateTodo(id, completed) {
-    const connection = await mysql.createConnection(dbConfig);
-    await connection.execute('UPDATE todos SET completed = ? WHERE id = ?', [completed, id]);
-    await connection.end();
+    const todos = readDB();
+    const index = todos.findIndex(todo => todo.id === id);
+    if (index !== -1) {
+        todos[index].completed = completed;
+        writeDB(todos);
+    }
 }
 
 async function deleteTodo(id) {
-    const connection = await mysql.createConnection(dbConfig);
-    await connection.execute('DELETE FROM todos WHERE id = ?', [id]);
-    await connection.end();
+    const todos = readDB();
+    const updatedTodos = todos.filter(todo => todo.id !== id);
+    writeDB(updatedTodos);
 }
 
 module.exports = { getTodos, addTodo, updateTodo, deleteTodo };
