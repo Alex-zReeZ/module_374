@@ -5,7 +5,10 @@
 - Alex Beck
 
 ## Features
-- N/A
+The web application running in our Docker container can:
+- Create a task in your todo list
+- Save the task, even if the container shuts down
+- Delete tasks from your todo list
 
 ## Running the Application
 Ensure that Docker CLI and Git CLI are installed before proceeding.
@@ -13,7 +16,7 @@ Ensure that Docker CLI and Git CLI are installed before proceeding.
 ### Downloading the Application
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/my-docker-app.git
+   git clone https://our.githubrepo.com/
    ```
 2. Navigate to the project directory:
    ```
@@ -22,22 +25,23 @@ Ensure that Docker CLI and Git CLI are installed before proceeding.
 ### Development Environment
 To run the application in the development environment, use Docker Compose:
 ```
-docker-compose -f docker/docker-compose.yml up
+docker-compose build && docker-compose up
 ```
 Or, use the regular Dockerfile:
 ```
-docker build --target dev -t my_app:dev .
+docker build --target dev -t projet_docker_dev:v1 . && docker run -P -d --name projet_docker_dev projet_docker_dev:v1
 ```
 This will start the application with the development configuration.
 
 ### Production Environment
-To run the application in the production environment, use Docker Compose:
+To run the application in the production environment, you'll have to modify the target inside of 'docker-compose.yaml' to prod, instead of dev. 
+Then, use Docker Compose:
 ```
 docker-compose -f docker/docker-compose.yml -e production up
 ```
 Or, use the regular Dockerfile:
 ```
-docker build --target prod -t my_app:prod .
+docker build --target prod -t projet_docker_prod:v1 . && docker run -P -d --name projet_docker_prod projet_docker_prod:v1
 ```
 This will start the application with the production configuration.
 
@@ -46,10 +50,6 @@ This will start the application with the production configuration.
 - **Backend**: N/A
 - **Database**: N/A
 - **Docker**: N/A
-
-## Environment Variables
-- Development: Configured in `config/development.env`
-- Production: Configured in `config/production.env`
 
 ## How to Verify Environment Differences
 - **Development**: N/A
