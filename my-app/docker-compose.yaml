@@ -2,16 +2,16 @@ services:
   app:
     build:
       context: .
-      target: dev # Change this to 'prod' for production
+      target: dev
     ports:
       - "3000:3000"
     depends_on:
       - db
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules # To avoid overwriting node_modules with the host
+      - /usr/src/app/node_modules
     environment:
-      NODE_ENV: development # Change to 'production' if building with the 'prod' target
+      NODE_ENV: development 
 
   db:
     image: mysql:8.0
@@ -19,6 +19,7 @@ services:
       MYSQL_ROOT_PASSWORD: example
     volumes:
       - db_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
 
 volumes:
   db_data:
