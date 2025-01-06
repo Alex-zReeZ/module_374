@@ -1,5 +1,9 @@
 # Our Docker App
 
+## Group Members :
+- Henrique Pinto Rocha
+- Alex Beck
+
 ## Features
 - N/A
 
