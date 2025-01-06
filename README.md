@@ -45,15 +45,9 @@ docker build --target prod -t projet_docker_prod:v1 . && docker run -P -d --name
 ```
 This will start the application with the production configuration.
 
-## Architecture Overview
-- **Frontend**: N/A
-- **Backend**: N/A
-- **Database**: N/A
-- **Docker**: N/A
-
 ## How to Verify Environment Differences
 - **Development**: 
   - Code can be modified and checked live, so you can modify the code faster
-  - 
-- **Production**: N/A
+- **Production**:
+  - The app is completly usable for the user, with no error blocking him 
    
