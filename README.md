@@ -16,7 +16,7 @@ Ensure that Docker CLI and Git CLI are installed before proceeding.
 ### Downloading the Application
 1. Clone the repository:
    ```
-   git clone https://our.githubrepo.com/
+   git clone https://github.com/Alex-zReeZ/module_374.git
    ```
 2. Navigate to the project directory:
    ```
@@ -52,6 +52,8 @@ This will start the application with the production configuration.
 - **Docker**: N/A
 
 ## How to Verify Environment Differences
-- **Development**: N/A
+- **Development**: 
+  - Code can be modified and checked live, so you can modify the code faster
+  - 
 - **Production**: N/A
    
