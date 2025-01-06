@@ -4,7 +4,7 @@ const { getTodos, addTodo, updateTodo, deleteTodo } = require('./db');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/api/todos', async (req, res) => {
     const todos = await getTodos();

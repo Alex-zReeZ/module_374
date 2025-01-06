@@ -25,7 +25,7 @@ EXPOSE 3000
 FROM base AS prod
 
 # Define the command to start the application in production
-CMD ["node", "src/app.js"]
+CMD ["node", "app.js"]
 
 # ------------------------------
 # Stage 3 : Development Stage
