@@ -47,8 +47,10 @@ This will start the application with the production configuration.
 
 ### 1. Flexibility vs. Stability
 **Development**: Code can be modified and tested in real-time. Errors or bugs are acceptable as the focus is on building and validating features.
+
 **Production**: The application must be stable and fully functional for end users, with no critical errors disrupting the user experience.
 
-### 3. Performance and Debugging
+### 2. Performance and Debugging
 **Development**: Debugging tools are enabled (e.g., detailed logs, debug mode), making it easier to trace and resolve issues.
+
 **Production**: Performance is optimized (e.g., file minification, debugging tools disabled, load management). The focus is on delivering a fast and seamless experience.
