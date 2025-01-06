@@ -45,14 +45,10 @@ docker build --target prod -t projet_docker_prod:v1 . && docker run -P -d --name
 ```
 This will start the application with the production configuration.
 
+### 1. Flexibility vs. Stability
+**Development**: Code can be modified and tested in real-time. Errors or bugs are acceptable as the focus is on building and validating features.
+**Production**: The application must be stable and fully functional for end users, with no critical errors disrupting the user experience.
 
-
-Voici deux différences principales entre les environnements de développement et de production :
-
-### 1. **Flexibilité vs. Stabilité**  
-   - **Développement :** Vous pouvez tester et modifier le code en temps réel. Les erreurs ou bugs ne sont pas critiques, car l'objectif est de construire et de valider les fonctionnalités.  
-   - **Production :** L'application doit être stable et entièrement fonctionnelle pour les utilisateurs finaux. Aucune erreur ne doit bloquer l'expérience utilisateur.  
-
-### 2. **Performances et Debugging**  
-   - **Développement :** Les outils de debugging sont activés (comme les logs détaillés ou les modes de débogage). L'accent est mis sur la facilité de suivi et de résolution des problèmes.  
-   - **Production :** Les performances sont optimisées (minification des fichiers, désactivation des outils de debugging, gestion de la charge). L'objectif est d'offrir une expérience rapide et fluide.  
+### 3. Performance and Debugging
+**Development**: Debugging tools are enabled (e.g., detailed logs, debug mode), making it easier to trace and resolve issues.
+**Production**: Performance is optimized (e.g., file minification, debugging tools disabled, load management). The focus is on delivering a fast and seamless experience.
